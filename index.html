@@ -1,0 +1,147 @@
+
+<!<DOCTYPE html>
+<html>
+<head>
+  <title>Mapa de Dispositivos</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.min.css">
+  <style>
+    #map {
+      height: 500px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <h1>Mapa de Dispositivos en Videoenplay</h1>
+	  <div class="row">
+
+  <div class="col-md-12">
+    <div class="d-flex justify-content-between align-items-center">
+      <div class="legend">
+        <h4>Leyenda</h4>
+        <div>
+          <img src=" data:image/png;base64,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" alt="Marcador rojo" style="height: 25px;">
+          <span>Dispositivo desconectado</span>
+        </div>
+        <div>
+           <img src=" data:image/png;base64,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" alt="Marcador verde" style="height: 25px;">		
+       
+          <span>Dispositivo conectado</span>
+        </div>
+      </div>
+      <button id="refresh-btn" class="btn btn-primary pull-right" style=" margin-top: -40px;" onclick="location.reload()">Refrescar</button>
+    </div>
+  </div>
+
+</div>
+
+      <div id="map"></div>
+      <table id="devices-table" class="table table-bordered">
+        <thead>
+          <tr>
+			<th>Estado</th>
+            <th>Código Personal</th>
+            <th>Dirección</th>
+            <th>Provincia</th>
+            <th>País</th>
+            <th>Último Post Timezone</th>
+            <th>Último Get Timezone</th>
+            <th>Zoom</th>
+          </tr>
+        </thead>
+        <tbody>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.min.js"></script>
+<script>
+  
+ //MODIFICA ESTOS DATOS CON TU API
+ //NO COMPARTAS ESTOS DATOS!!!
+  var apikey="tu_apikey";   //pon aqui tu APIKEY obtenida en la pagina de inicio del serviro videoenplay
+  
+  var autorizacion="tu_basic_auth";  //pon el codigo que hay acontinuación de BASIC AUTH
+ //FIN MODIFICAR 
+  
+  //marcadores
+  var iconoverde ='data:image/png;base64,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';
+  var iconorojo='data:image/png;base64,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';
+  // Hacer la solicitud HTTP utilizando jQuery
+  $.ajax({
+    url: 'https://videoenplay.com/login/index.php/Api/tokeninfo?key=%27'+apikey+'%27',
+    headers: {
+      'Authorization': 'Basic '+ autorizacion
+    },
+    dataType: 'json',
+    success: function(data) {
+      // Crear un mapa utilizando LeafletJS
+      var map = L.map('map').setView([40.416775, -3.703790], 8);
+
+      // Agregar una capa de mapa base
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: 'Map data © <a href="https://openstreetmap.org">OpenStreetMap</a> contributors',
+        maxZoom: 18
+      }).addTo(map);
+
+      // Iterar sobre los datos JSON y agregar un marcador para cada dispositivo
+      $.each(data, function(index, device) {
+        if (device.latitud != 0 && device.longitud != 0) {
+          // Comprobar si las horas están dentro del rango de media hora
+          var ultimoPostTime = new Date(device.ultimo_post_timezone);
+          var ultimoGetTime = new Date(device.ultimo_get_timezone);
+          var currentTime = new Date();
+          var halfHourBefore = new Date(currentTime.getTime() - 30 * 60000);
+          var halfHourAfter = new Date(currentTime.getTime() + 30 * 60000);
+
+           var inRange = ultimoPostTime >= halfHourBefore && ultimoPostTime <= halfHourAfter;
+
+          // Seleccionar el icono del marcador en función de si está en el rango de tiempo
+          var markerIcon = inRange ? 'images/marker-icon-green.png' : 'images/marker-icon-red.png';
+		  var markerIcon = inRange ? iconoverde : iconorojo;
+
+          // Crear y agregar el marcador al mapa
+          var marker = L.marker([device.latitud, device.longitud], {
+            icon: L.icon({
+              iconUrl: markerIcon,
+              iconSize: [25, 41],
+              iconAnchor: [12, 41],
+              popupAnchor: [1, -34],
+              shadowSize: [41, 41]
+            })
+          }).addTo(map);
+
+          // Agregar un controlador de eventos "click" para los botones "Zoom"
+          $('#devices-table').on('click', '.zoom-btn', function() {
+            var lat = parseFloat($(this).data('lat'));
+            var lng = parseFloat($(this).data('lng'));
+            map.setView([lat, lng], 16);
+          });
+
+          // Agregar un popup al marcador
+          marker.bindPopup('<strong>' + device.codigo_personal + '</strong><br>' + device.calle + ' ' + device.numero + '<br>' + device.provincia + ', ' + device.pais);
+
+          // Agregar los datos a la tabla
+		  $('#devices-table tbody').append('<tr><td><img src="' + markerIcon + '" alt="Estado" style="height: 25px;"></td><td>' + device.codigo_personal + '</td><td>' + device.calle + ' ' + device.numero + '</td><td>' + device.provincia + '</td><td>' + device.pais + '</td><td>' + device.ultimo_post_timezone + '</td><td>' + device.ultimo_get_timezone + '</td><td><button class="btn btn-primary zoom-btn" data-lat="' + device.latitud + '" data-lng="' + device.longitud + '">Zoom</button></td></tr>');
+
+              }
+      });
+    },
+    error: function(xhr, status, error) {
+      alert('Ha ocurrido un error al obtener los datos del servidor.');
+    }
+  });
+</script>
+
+</body>
+</html>
+

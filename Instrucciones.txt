@@ -1,0 +1,5 @@
+Abre el index.html con un editor de texto y sobre la linea 67 donde pone MODIFICAR introduce los datos de tu api, el apikey y el BASE AUTH
+
+Sube el archivo a tu servidor ,obtendras el mapa de tus dispositivos y cuales estan conectados.
+
+Por seguridad, debes notificiar a videoenplay el dominio donde lo vas a subir para que podamos darte de alta
